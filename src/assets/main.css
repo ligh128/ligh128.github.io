@@ -1,0 +1,179 @@
+@import "./base.css";
+@import "./formFields.css";
+@import "./buttons.css";
+@import "./animations.css";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind formFields;
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+.font-Lato {
+  font-family: "Lato";
+}
+.font-Merriweather {
+  font-family: "Merriweather";
+}
+.font-Roboto {
+  font-family: "Roboto";
+}
+.btn-shadow {
+  box-shadow: -1px 1px 5px 0px rgb(209 2 2 / 50%);
+}
+.box-shadow {
+  box-shadow: 1px 1px 26px 0px rgb(23 23 23 / 10%);
+  border: 1px solid #d9d9d9;
+}
+.testimonia-shadow {
+  box-shadow: 5px 5px 30px 0px rgb(51 51 51 / 10%);
+}
+.testimonia-shadow:hover {
+  box-shadow: 2px 2px 20px 0px rgb(2 0 71 / 21%);
+}
+.text-shadow {
+  text-shadow: -9px 0px 13px rgb(0 0 0 / 63%);
+}
+.hero-pattern {
+  background-image: url(../assets/img/injpg.png);
+  background-position: 75% 50%;
+  background-repeat: no-repeat;
+  background-size: 25% auto;
+}
+.inner-left-hero-sec{
+  background-image: url(../assets/img/street-left.svg);
+  background-repeat: no-repeat;
+}
+.inner-right-hero-sec{
+  background-image: url(../assets/img/street-right.svg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+.top-ring svg,
+.bottom-ring svg {
+  width: calc(200% + 1.3px);
+  height: 25px;
+  transform: translateX(-50%) rotateY(180deg);
+}
+.top-ring svg path,
+.bottom-ring svg path {
+  fill: #fff;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.bottom-ring {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.elementor-background-overlay {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #ceced8 0%, #e6e6e6 100%);
+  opacity: 0.35;
+}
+@media (min-width: 5000px) {
+  .dogjson,
+  .traficAnimation {
+    max-width: 760px;
+  }
+}
+@media (min-width: 1025px) {
+  .main-containar {
+    max-width: 1140px;
+    margin: auto;
+  }
+  .header ul li a:hover svg path {
+    fill: #db0909;
+  }
+  .header ul li:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  .cus-arrow-btn:hover .icon-container {
+    transform: translateX(60%);
+  }
+  .cus-arrow-btn:hover .icon-container .icon--left {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .cus-arrow-btn:hover .icon-container .icon--right {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  .cus-arrow-btn:hover::after {
+    transform: translateX(78%);
+  }
+}
+@media (max-width: 767px) {
+  .hero-pattern {
+    background-image: none;
+  }
+  .menu-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  .menu-hover {
+    color: #db0909;
+  }
+  .menu-hover svg path {
+    fill: #db0909;
+  }
+  .menu-hover svg {
+    border-color: #db0909;
+    transform: rotate(180deg);
+  }
+}
+.progress-bar ul li {
+  position: relative;
+}
+.progress-bar ul li::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: black;
+  left: 0;
+  top: 2px;
+  transition-duration: 300ms;
+  border: 5px solid #fff;
+}
+.progress-bar ul li:hover::before {
+  background-color: #d24948;
+}
+.progress-bar ul li::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 90%;
+  border-radius: 15px;
+  background-color: black;
+  left: 12px;
+  top: 29px;
+}
+@media (max-width: 400px) {
+  .bg-padding {
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 350px) {
+  .bg-padding {
+    padding-bottom: 40px;
+  }
+}
+.swiper{
+  width: 75% !important;
+}

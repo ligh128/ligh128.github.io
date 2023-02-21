@@ -1,0 +1,18 @@
+.floating-input:active >span {
+    margin-top: -10px;
+}
+
+/* Styling datepicker. */
+.dp__main.dp__theme_light.not-valid {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.dp__main.dp__theme_light.not-valid * {
+    border-color: red;
+}
+
+.datepicker-label.not-valid {
+    color: red;
+}

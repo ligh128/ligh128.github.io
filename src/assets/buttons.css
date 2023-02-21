@@ -1,0 +1,42 @@
+.blue-btn-type {
+    background-color: theme('colors.blue');
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    padding: 10px 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 300ms;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.blue-btn-type:hover {
+    background-color: theme('colors.blueHover');
+}
+
+.white-btn-type {
+    background-color: #fff;
+    color: #1E182E;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    padding: 10px 32px;
+    border: 1px solid #EAE8EF;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 300ms;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.white-btn-type:hover {
+    background-color: #EAE8EF;
+}
