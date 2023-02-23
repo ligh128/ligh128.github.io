@@ -6,11 +6,12 @@
       {{ selected }}
     </div>
     <div class="items" :class="{ selectHide: !open }">
-      <div v-for="(option, i) of $props.options" :key="i" @click="
-        selected = option;
-      open = false;
-      $emit('input', option);
-                                                                                                        ">
+      <div v-for="(option, i) of $props.options" :key="i"
+        @click="
+          selected = option;
+        open = false;
+        $emit('input', option);
+                                                                                                                                                                ">
         {{ option }}
       </div>
     </div>

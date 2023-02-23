@@ -45,7 +45,7 @@
       :placeholder="'Apartment, Unit, Suite, Building, etc.'" />
 
     <SelectField class="form-field select-field mb-[32px]" :width="320" :required="true"
-      :options="['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']"
+      :options="['', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']"
       :default="clientContactInfo.state ? clientContactInfo.state : ''"
       :class="clientInformationFormFieldsStatus.state ? 'valid' : 'not-valid'" :label="'State *'"
       @input="formValueSelect('contact_state', $event)" />
@@ -123,6 +123,7 @@ export default ({
       const zipcode = addressData.postal_code;                  //zip
       const state = addressData.administrative_area_level_1;   //state
       this.$emit("setClientData", { city, country, route, zipcode, state });
+      //console.log(addressData);
     }
   }
 });
