@@ -28,25 +28,25 @@
       placeholder="Last name *" />
 
 
-    <AutoInputField @input="formValueSelect('contact_street_address1', $event)" :required="true"
-      :default="clientContactInfo.address1 ? clientContactInfo.address1 : null"
-      :class="clientInformationFormFieldsStatus.address1 ? 'valid' : 'not-valid'" class="mb-[32px]"
-      :placeholder="'Street address *'" :func="getAddressData" />
+    <AutoInputField @input="formValueSelect('contact_address', $event)" :required="true"
+      :default="clientContactInfo.address ? clientContactInfo.address : null"
+      :class="clientInformationFormFieldsStatus.address ? 'valid' : 'not-valid'" class="mb-[32px]"
+      :placeholder="'Address *'" :func="getAddressData" />
 
 
-    <!-- <InputField @input="formValueSelect('contact_street_address1', $event)" :required="true"
+    <InputField @input="formValueSelect('contact_street_address1', $event)" :required="true"
       :default="clientContactInfo.address1 ? clientContactInfo.address1 : null"
       :class="clientInformationFormFieldsStatus.address1 ? 'valid' : 'not-valid'" class="mb-[32px]" type="text"
-      :placeholder="'Street address *'" /> -->
+      :placeholder="'Street address *'" />
 
     <InputField @input="formValueSelect('contact_street_address2', $event)"
       :default="clientContactInfo.address2 ? clientContactInfo.address2 : null"
       :class="clientInformationFormFieldsStatus.address2 ? 'valid' : 'not-valid'" class="mb-[32px]" type="text"
-      :placeholder="'Apartment, Unit, Suite, Building, etc. *'" />
+      :placeholder="'Apartment, Unit, Suite, Building, etc.'" />
 
-    <SelectField :required="true" class="form-field select-field mb-[32px]" :width="320"
+    <SelectField class="form-field select-field mb-[32px]" :width="320" :required="true"
       :options="['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']"
-      :default="clientContactInfo.state ? clientContactInfo.state : ' '"
+      :default="clientContactInfo.state ? clientContactInfo.state : ''"
       :class="clientInformationFormFieldsStatus.state ? 'valid' : 'not-valid'" :label="'State *'"
       @input="formValueSelect('contact_state', $event)" />
 
@@ -119,12 +119,10 @@ export default ({
     getAddressData(addressData) {
       const city = addressData.locality;                        //city
       const country = addressData.country;                         //country
-      const route = addressData.route;                         //street address
-      const apartment = addressData.street_number;                //apartment
+      const route = addressData.street_number + " " + addressData.route;                         //street address
       const zipcode = addressData.postal_code;                  //zip
-      const state = addressData.administrative_area_level_1;   ////state
-      this.$emit("setClientData", { city, country, route, apartment, zipcode, state });
-      this.country = addressData.country;
+      const state = addressData.administrative_area_level_1;   //state
+      this.$emit("setClientData", { city, country, route, zipcode, state });
     }
   }
 });

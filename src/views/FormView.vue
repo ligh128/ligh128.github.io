@@ -39,7 +39,7 @@ import Header from '../components/Header.vue';
         <Header />
         <div
             class="form-view-content px-[20px] lg:px-[35px] 2x:px-[96px] pt-[30px] xl:pt-[56px] w-full flex items-center
-                                                                                                                                                                                                                                                                                                                                                                                                            lg:items-start lg:flex-row justify-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                lg:items-start lg:flex-row justify-center">
             <FormSideInformation
                 class="2sm:min-w-[360px] w-full 2sm:max-w-[30%] mr-0 lg:mr-[20px] xl:mr-[65px] 2xl:mr-[130px]" />
             <div class="lg:min-w-[730px] w-[730px] max-w-[100%] mb-[40px] lg:mb-0">
@@ -131,6 +131,7 @@ export default {
                 "last_name": "",
                 "email": "",
                 "phone": "",
+                "address": "",
                 "address1": "",
                 "address2": "",
                 "city": "",
@@ -367,6 +368,7 @@ export default {
             clientInformationFormFieldsStatus: {
                 first_name: true,
                 last_name: true,
+                address: true,
                 address1: true,
                 address2: true,
                 zip_code: true,
@@ -498,7 +500,7 @@ export default {
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("POST", url, false);
             xmlHttp.setRequestHeader("Authorization", key);
-            xmlHttp.setRequestHeader("Content-Typ", "application/json");
+            xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.setRequestHeader("Accept", "application/json");
             xmlHttp.send(body);
             return xmlHttp.responseText;
@@ -527,6 +529,9 @@ export default {
                     break;
                 case "contact_last_name":
                     this.clientContactInfo.last_name = value.fieldValue;
+                    break;
+                case "contact_address":
+                    this.clientContactInfo.address = value.fieldValue;
                     break;
                 case "contact_street_address1":
                     this.clientContactInfo.address1 = value.fieldValue;
@@ -562,7 +567,6 @@ export default {
         },
         setClientData(value) {
             this.clientContactInfo.address1 = value.route;
-            this.clientContactInfo.address2 = value.apartment;
             this.clientContactInfo.state = value.state;
             this.clientContactInfo.city = value.city;
             this.clientContactInfo.zip_code = value.zipcode;
@@ -970,6 +974,13 @@ export default {
                 }
                 else {
                     this.clientInformationFormFieldsStatus.last_name = true;
+                }
+                if (this.clientContactInfo.address.length <= 2) {
+                    areFieldsValid = false;
+                    this.clientInformationFormFieldsStatus.address = false;
+                }
+                else {
+                    this.clientInformationFormFieldsStatus.address = true;
                 }
                 if (this.clientContactInfo.address1.length <= 2) {
                     areFieldsValid = false;

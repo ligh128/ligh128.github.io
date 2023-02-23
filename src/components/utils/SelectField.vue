@@ -10,7 +10,7 @@
         selected = option;
       open = false;
       $emit('input', option);
-                                                                                ">
+                                                                                                        ">
         {{ option }}
       </div>
     </div>
@@ -33,7 +33,7 @@ export default {
     default: {
       type: String,
       required: false,
-      default: null,
+      default: undefined,
     },
     tabindex: {
       type: Number,
@@ -55,17 +55,13 @@ export default {
   data() {
     return {
       options: [],
-      selected: this.default
-        ? this.default
-        : this.options.length > 0
-          ? this.options[0]
-          : null,
+      selected: this.default ? this.default : this.options.length > 0 ? this.options[0] : null,
       open: false,
     };
   },
   watch: {
     default: function (newVal, oldVal) { // watch it
-      this.value = this.default;
+      this.selected = this.default;
     }
   },
   mounted() {
